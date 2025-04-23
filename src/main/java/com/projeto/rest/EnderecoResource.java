@@ -20,7 +20,7 @@ public class EnderecoResource {
         return ResponseEntity.ok().body(enderecoService.save(enderecoDto));
     }
 
-    @GetMapping("/endereco/{id}")
+    @DeleteMapping("/endereco/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) throws Exception{
             enderecoService.delete(id);
             return ResponseEntity.noContent().build();

@@ -22,19 +22,14 @@ public class PessoaService {
     @Autowired
     private PessoaMapper pessoaMapper;
 
-//    public PessoaService(PessoaRepository pessoaRepository, PessoaMapper pessoaMapper) {
-//        this.pessoaRepository = pessoaRepository;
-//        this.pessoaMapper = pessoaMapper;
-//    }
-
     public Optional<PessoaDto> buscarPessoaPorID(Long idPessoa){
         return pessoaRepository.findById(idPessoa).map(pessoaMapper::toDto);
     }
 
     public PessoaDto save(PessoaDto pessoaDto){
-        Pessoa pessoa = pessoaMapper.toEntity(pessoaDto);
+        Pessoa pessoa = new Pessoa(pessoaDto);
         pessoa = pessoaRepository.save(pessoa);
-        return pessoaMapper.toDto(pessoa);
+        return new PessoaDto(pessoa);
     }
 
     public List<PessoaDto> saveAll (List<PessoaDto> pessoaDtoList){

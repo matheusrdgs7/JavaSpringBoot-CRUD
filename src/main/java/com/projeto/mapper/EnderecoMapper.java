@@ -6,6 +6,6 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface EnderecoMapper {
-    EnderecoDto toDto(Endereco pessoa);
-    Endereco toEntity (EnderecoDto pessoaDto);
+    EnderecoDto toDto(Endereco endereco);
+    Endereco toEntity (EnderecoDto enderecoDto);
 }
